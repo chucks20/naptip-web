@@ -21,7 +21,7 @@ export const tokens = (mode) => ({
             200: "#a1a4ab",
             300: "#727681",
             400: "#1F2A40",
-            500: "#141b2d",
+            500: "#f5f5f5",
             600: "#101624",
             700: "#0c101b",
             800: "#080b12",
@@ -140,7 +140,7 @@ export const themeSettings = (mode) => {
                     light: colors.grey[100],
                 },
                 background: {
-                    default: colors.primary[500],
+                    default: mode === 'dark' ? colors.primary[500] : colors.primary[500],
                 },
             }
             : {
@@ -197,7 +197,7 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-    const [mode, setMode] = useState('dark');
+    const [mode, setMode] = useState('light');
 
     const colorMode = useMemo(
         () => ({

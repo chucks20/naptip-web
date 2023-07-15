@@ -15,15 +15,24 @@ import FormatListNumberedRtlIcon from '@mui/icons-material/FormatListNumberedRtl
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-    return (
-        <MenuItem active={selected === title} style={{color: colors.grey[100]}} onClick={() => setSelected(title)} icon={icon}>
-        <Typography>{title}</Typography>
-        <Link to={to} />
-        </MenuItem>
-    )
-}
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
+    <MenuItem 
+     component = {<Link to={to} />}
+      active={selected === title}
+      style={{
+        color: "#fff",
+      }}
+      onClick={() => setSelected(title)}
+      icon={icon}
+    >
+      <Typography>{title}</Typography>
+    </MenuItem>
+  );
+    
+};
+
 
 const MySidebar = () => {
     const theme = useTheme();
@@ -73,12 +82,20 @@ const MySidebar = () => {
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="10px">
-              <Box display="flex" justifyContent="left" alignItems="center">
+            <Box mb="10px" 
+            sx={{
+              display: "flex",
+              justifyContent: "left",
+              alignItems: "left",
+              margin: "10px 0 30px 30px",
+            }}
+            >
+              <Box display="flex" justifyContent="left" alignItems="">
                 <img
                   alt="profile-user"
-                  width="50px"
-                  height="50px"
+                  width="80px"
+                  height="80px"
+                
                   src={`../../assets/naptip-logo.png`}
                   style={{ cursor: "pointer"}}
                 />
@@ -97,7 +114,7 @@ const MySidebar = () => {
             />
             <Item
               title="Categories"
-              to="/team"
+              to="/categories"
               icon={<FormatListNumberedRtlIcon />}
               selected={selected}
               setSelected={setSelected}
