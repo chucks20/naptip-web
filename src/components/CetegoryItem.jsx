@@ -3,7 +3,9 @@ import { Box, Typography, IconButton } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 
-const CategoryItem = ({ name, priority }) => {
+const CategoryItem = ({ name, priority, 
+  handleEdit, handleDelete
+}) => {
   return (
     <Box
       display='flex'
@@ -30,10 +32,14 @@ const CategoryItem = ({ name, priority }) => {
       </Box>
 
       <Box display='flex' alignItems='center'>
-        <IconButton size='small' color='inherit'>
+        <IconButton
+          onClick={handleEdit}
+         size='small' color='inherit'>
           <EditIcon />
         </IconButton>
-        <IconButton size='small' color='error'>
+        <IconButton
+          onClick={handleDelete}
+         size='small' color='error'>
           <DeleteIcon />
         </IconButton>
       </Box>

@@ -7,6 +7,9 @@ import Dashboard from "./scenes/dashboard";
 import MySidebar from "./scenes/global/Sidebar";
 import LoginPage from "./scenes/login";
 import Categories from "./scenes/categories";
+import Settings from "./scenes/settings";
+import Reports from "./scenes/reports";
+import Offices from "./scenes/offices";
 
 // import Team from "./scenes/Team";
 // import Contacts from "./scenes/Contacts";
@@ -36,7 +39,10 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               {/* Categories */}
               <Route path="/categories" element={<Categories />} />
-              {/* <Route path="/team" element={<Team />} /> */}
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/reports" element={<Reports />} />
+              <Route path="*" element={<Dashboard />} />
+              <Route path="/offices" element={<Offices />} />
             </Routes>
           </main>
         </div>

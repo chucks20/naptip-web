@@ -12,7 +12,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import FormatListNumberedRtlIcon from '@mui/icons-material/FormatListNumberedRtl';
-
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -74,9 +74,17 @@ const MySidebar = () => {
                 <Typography variant="h3" color={colors.grey[100]}>
                   
                 </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
-                </IconButton>
+                {
+                  !isCollapsed && (
+                    <IconButton
+                      onClick={() => setIsCollapsed(!isCollapsed)}
+                      style={{ color: "#fff" }}
+                    >
+                      <MenuOutlinedIcon />
+                    </IconButton>
+                  )
+                  
+                }
               </Box>
             )}
           </MenuItem>
@@ -112,6 +120,13 @@ const MySidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+             <Item
+              title="Reports"
+              to="/reports"
+              icon={<AssignmentIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
               title="Categories"
               to="/categories"
@@ -119,23 +134,16 @@ const MySidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Users"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Reports"
-              to="/contacts"
-              icon={<AssignmentIcon />}
+             <Item
+              title="Branch"
+              to="/offices"
+              icon={<HomeWorkIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Settings"
-              to="/invoices"
+              to="/settings"
               icon={<SettingsIcon />}
               selected={selected}
               setSelected={setSelected}
